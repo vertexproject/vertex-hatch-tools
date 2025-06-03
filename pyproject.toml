@@ -2,7 +2,7 @@
 name = "vertex-hatch-tools"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
+readme = "README.rst"
 authors = [
     { name = 'The Vertex Project LLC', email = 'root@vertex.link'},
     { name = "epiphyte", email = "epiphyte@vertex.link" },
