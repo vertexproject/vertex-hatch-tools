@@ -45,6 +45,7 @@ class VertexBuildHook(BuildHookInterface):
 
         self.vtx_git_current_commit = None  # type: None | str
         self.vtx_git_set_commit = self.config.get('set_git_commit', ())
+        self.vtx_python_wheel_tag = self.config.get('python_wheel_tag', None)
 
     def initialize(self, version: str, build_data: Dict[str, Any]) -> None:
         print('vertex initialize')
@@ -57,16 +58,23 @@ class VertexBuildHook(BuildHookInterface):
         if self.vtx_git_set_commit:
             self.replace_commit(build_data)
 
+        if self.vtx_python_wheel_tag:
+            print(f'setting python wheel tag to {self.vtx_python_wheel_tag}')
+            build_data['tag'] = self.vtx_python_wheel_tag
+
     def replace_commit(self, build_data: Dict[str, Any]) -> None:
         self.vtx_git_current_commit = get_git_commit()
         if self.vtx_git_current_commit:
+            print(f'Identified current git commit as {self.vtx_git_current_commit}')
             for filepath in self.vtx_git_set_commit:
+                print(f'Updating commit in {filepath}')
                 _replace_commit(filepath, oldv="''", newv=f"'{self.vtx_git_current_commit}'")
         else:
             raise ValueError('No git commit detected!')
 
     def undo_replace_commit(self, build_data: Dict[str, Any]) -> None:
         for filepath in self.vtx_git_set_commit:
+            print(f'Removing commit in {filepath}')
             _replace_commit(filepath, oldv=f"'{self.vtx_git_current_commit}'", newv="''")
 
     def clean(self, build_data: Dict[str, Any]) -> None:
