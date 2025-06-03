@@ -15,7 +15,7 @@ class VertexBuildHook(BuildHookInterface):
         print(version)
         print(build_data)
 
-    def finalize(version: str, build_data: dict[str, Any], artifact_path: str) -> None:
+    def finalize(self, version: str, build_data: dict[str, Any], artifact_path: str) -> None:
         print('vertex finalize')
         print(build_data)
         print(artifact_path)
