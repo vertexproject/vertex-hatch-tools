@@ -20,4 +20,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.entry-points.hatch]
-build-script = "vertex_hatch_tools.hooks"
+vertex = "vertex_hatch_tools.hooks"

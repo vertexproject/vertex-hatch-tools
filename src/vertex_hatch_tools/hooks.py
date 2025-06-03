@@ -4,7 +4,7 @@ from hatchling.builders.plugin.interface import BuildHookInterface
 
 
 class VertexBuildHook(BuildHookInterface):
-    PLUGIN_NAME = 'vertex'
+    PLUGIN_NAME = 'vbuild'
 
     def initialize(self, version: str, build_data: Dict[str, Any]) -> None:
         print('vertex initialize')
