@@ -1,0 +1,20 @@
+[project]
+name = "vertex-hatch-tools"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = 'The Vertex Project LLC', email = 'root@vertex.link'},
+    { name = "epiphyte", email = "epiphyte@vertex.link" },
+]
+requires-python = ">=3.13"
+dependencies = [
+    "hatchling",
+]
+
+#[project.scripts]
+#vertex-hatch-tools = "vertex_hatch_tools:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
