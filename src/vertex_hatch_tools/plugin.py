@@ -2,8 +2,6 @@ from typing import Any, Dict
 
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
 
-print('vertex-hatch-tools.plugin have been imported')
-
 class VertexBuildHook(BuildHookInterface):
     PLUGIN_NAME = 'vertex'
 

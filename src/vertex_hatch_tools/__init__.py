@@ -1,1 +1,0 @@
-print('vertex-hatch-tools have been imported')
